@@ -1,0 +1,23 @@
+//***Array Bounds Check***
+
+//#define NDEBUG without this assert will be printed , when this is defined asser will be ignored
+//In C, assert is a macro that provides a way to test assumptions made by the program 
+//and NDEBUG is a preprocessor macro that, when defined, disables the assert
+
+#include<assert.h>
+#include<stdio.h>
+
+
+int get_element(int arr[],int index,int size){
+    assert(index>=0 && index<size);
+    return arr[index];
+}
+
+int main(){
+    int arr[]={9,4,5,2,1};
+    int size=sizeof(arr)/sizeof(arr[0]); //give number of elements in an array
+    printf("Element at 2nd index : %d \n",get_element(arr,2,size));
+    printf("Element at 5th index : %d \n",get_element(arr,5,size));
+    
+    return 0;
+}
