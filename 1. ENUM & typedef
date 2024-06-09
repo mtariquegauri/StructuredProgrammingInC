@@ -1,0 +1,83 @@
+An enum (enumeration) in C is a distinct data type consisting of a set of named integer constants, which can help improve code clarity and maintainability. Here’s an example and a brief explanation:
+
+enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY };
+In this example, SUNDAY is assigned the value 0, MONDAY the value 1, and so on up to SATURDAY with the value 6. You can explicitly set values as well:
+
+enum Day { SUNDAY = 1, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY };
+Here, SUNDAY starts at 1, MONDAY is 2, and so forth. Enumerations enhance code readability by allowing the use of meaningful names instead of numeric literals.
+
+1. #include<stdio.h>
+
+enum day {sun,mon,tue,wed,thur,fri,sat};
+
+void print_day(enum day d){
+    switch(d){
+        case sun: printf("Sunday"); break;
+        case mon: printf("Monday"); break;
+        case tue: printf("Tuesday"); break;
+        case wed: printf("Wednesday"); break;
+        case thur: printf("Thursday"); break;
+        case fri: printf("Friday"); break;
+        case sat: printf("Saturday"); break;
+        default : printf("%d is an error",d);
+    }
+}
+
+enum day next_day(enum day d){
+    return (d+1%7);
+}
+
+int main(){
+    enum day today = fri;
+    print_day(today);
+    printf("\n\n");
+    print_day(7);
+    printf("\n\n");
+    print_day(next_day(today));
+}
+
+Output : 
+Friday
+
+7 is an error
+
+Saturday
+
+2. Typedef => n C, a typedef can be used to create an alias for an existing type. Here is an example in one line , we will create as => enum day as day
+
+typedef enum day day
+
+____________
+
+#include<stdio.h>
+
+enum day {sun,mon,tue,wed,thur,fri,sat};
+typedef enum day day;
+
+void print_day(day d){
+    switch(d){
+        case sun: printf("Sunday"); break;
+        case mon: printf("Monday"); break;
+        case tue: printf("Tuesday"); break;
+        case wed: printf("Wednesday"); break;
+        case thur: printf("Thursday"); break;
+        case fri: printf("Friday"); break;
+        case sat: printf("Saturday"); break;
+        default : printf("%d is an error",d);
+    }
+}
+
+day next_day(day d){
+    return (d+1%7);
+}
+
+int main(){
+    day today = fri;
+    print_day(today);
+    printf("\n\n");
+    print_day(7);
+    printf("\n\n");
+    print_day(next_day(today));
+}
+
+same output;
