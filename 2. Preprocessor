@@ -1,0 +1,10 @@
+﻿
+
+The Preprocessor
+The C language uses the preprocessor to extend its power and notation. In this chapter, we present a detailed discussion of the preprocessor, including new features added by the ANSI C committee. We begin by explaining the use of #include. Then we thoroughly discuss the use of the #define macro facility. Mac- ros can be used to generate inline code that takes the place of a function call. Their use can reduce program execution time.
+1. #include => header file
+2. #define => MACROS
+In C, the function srand(time(0)) is used to seed the random number generator to ensure that the sequence of random numbers produced by rand() is different each time the program runs. Here's a brief explanation:
+
+srand(unsigned int seed) sets the seed for the rand() function. If the same seed is used, rand() will produce the same sequence of numbers each time.
+time(0) returns the current time in seconds since the Epoch (00:00:00 UTC, January 1, 1970). Using this as a seed ensures that the seed value changes every second.
